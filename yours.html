@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Yours
+	</title>
+<link rel="stylesheet" href="lg-fonts/style.css">
+<link rel="stylesheet" href="helvetica-fonts/style.css">
+	<style>
+    html{font-family: 'LG Smart UI',sans-serif; font-weight: 300;line-height: 1.6;font-size: 1.1rem;scroll-behavior: smooth;color:white}
+    body,h1,h2,p,ol,ul{margin:0;padding:0;overflow-x:hidden}
+    h1{font-family: 'Helvetica Neue';font-weight: 700;letter-spacing:-5px;font-style:italic; font-size: 11rem;padding-left:100px}
+    section{padding-top:50px;position:relative;}
+    nav{font-family: 'Helvetica Neue', sans-serif;font-weight:200;letter-spacing:-0.1px;background: rgba(255, 255, 255, 0);backdrop-filter: blur(10px);padding: 10px;position: fixed; border-bottom: 1px solid rgba(255, 255, 255, 0.3);top:0;left:0;width:100%;z-index: 1000;transition: all 0.3s ease;display: flex;justify-content: space-between;font-size: 1.1rem;}
+	li{list-style-type: none}
+		.menu{width: 400px; display: flex;gap: 60px;}
+	li a{text-decoration: none; color:white;padding:3px;margin:2px;display: block;transition: all 0.3s;}
+	.wrap{width:1000px; margin: 0 auto;  display: flex;justify-content: space-between;}
+	.wrap3{width:1300px; margin: 0 auto;  display: flex;}
+	.menu li a:hover {
+		  background: ;
+		  color: #F48FB1;
+		  transition: all 0.3s;
+		}
+	.menu li a:hover{background: ;color:black;transition: all 0.3s}
+	.logo{padding: 5px ;color:white;transition: all 0.3s;}
+	.flex {
+		  display: flex;
+		  align-items: center;
+		}
+	.menu {
+		  display: flex;
+		  gap: 60px;
+		  flex-wrap: nowrap;
+		}
+	.theme-wrapper {
+		    position: relative;
+		    overflow: hidden;
+		    color:white;
+		    height: 100vh;
+		    width: 100%;
+		  }
+	.gradient-bg {
+		position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 300px;
+		  background: linear-gradient(to bottom, #F48FB1, black);
+		  z-index: 2;
+		}
+	.year-title {font-family: 'Helvetica Neue';font-weight: 700;letter-spacing:-3px;font-style:italic; font-size: 11rem;
+		    color: white;
+		    position: absolute;
+		    top: 50px;
+		    left: 30px;z-index: 2;
+		  }
+	.theme-text {
+	    font-family: 'Helvetica Neue';font-style: italic;font-weight: 300;
+	    font-size: 2.5rem;color: white;
+	    position: absolute;top: 100px;left: 830px;z-index: 2;
+	  }
+	.bg-pic3{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url('1-past.gif') center center no-repeat;background-size: cover;z-index: 1;}
+	.intro-box {
+	  position: absolute;
+	  top: 55%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background: rgba(255, 255, 255, 0.1);
+	  border: 1px solid rgba(255, 255, 255, 0.75);
+	  padding: 30px 50px;
+	  text-align: center;
+	  color: white;
+	  font-family: 'LG Smart UI';
+	  font-size: 1.1rem;
+	  line-height: 1.8;
+	  z-index: 5;
+	  backdrop-filter: blur(3px);
+	}
+	.go-button {
+	  background: none;
+	  border: none;
+	  color: #F48FB1;
+	  font-family: 'Helvetica Neue', sans-serif;
+	  font-style: italic; font-weight:300;
+	  font-size: 1.5rem;
+	  margin-top: 20px;
+	  cursor: pointer;
+	  transition: color 0.5s ease;
+	}
+
+	.go-button:hover {
+	  color: white;
+	}
+	.form-popup {
+	  position: absolute;
+	  top: 55%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  width: 550px;
+	  background: rgba(255, 255, 255, 0.1);
+	  border: 1px solid rgba(255, 255, 255, 0.75);
+	  padding: 25px 30px;
+	  text-align: left;
+	  font-family: 'LG Smart UI';
+	  font-size: 1.1rem;
+	  line-height: 1.8;
+	  z-index: 10;
+	  backdrop-filter: blur(3px);
+	  color: white;
+	  opacity: 0;
+  		pointer-events: none;
+  		transition: opacity 0.6s ease;
+	}
+	.form-popup.active {
+	  opacity: 1;
+	  pointer-events: auto;
+	}
+
+	.form-popup.hidden {
+	  display: none;
+	}
+
+	.form-guide {
+	  
+	  margin-bottom: 10px;
+	}
+
+	.form-popup hr {
+	  border: none;
+	  border-top: 0.75px solid rgba(255,255,255,0.5);
+	  margin: 20px 0;
+	}
+	.input-row {
+		  display: flex;
+		  align-items: flex-start;
+		  justify-content: space-between;
+		  gap: 10px;
+		}
+	.pink{color: #F48FB1}
+	textarea {
+		width: 85%;
+	  height: 160px;
+	  padding: 15px;
+	  font-size: 0.9rem;
+	  font-family: 'LG Smart UI'; font-weight: 300;
+	  background: rgba(255,255,255,0.15);
+	  color: white;
+	  border: none;
+	  outline: none;
+	  resize: none;
+	}
+
+	textarea::placeholder {
+	  color: rgba(255,255,255,0.5);
+	}
+	.post-button {
+		width: 15%;
+		align-self: flex-end;
+	  background: none;
+	  border: none;
+	  color: #F48FB1;
+	  font-family: 'Helvetica Neue'; font-weight:300;
+	  font-style: italic;
+	  font-size: 1.5rem;
+	  cursor: pointer;
+	  transition: color 0.5s ease;
+	  text-align: right;
+	}
+
+	.post-button:hover {
+	  color: white;
+	}
+	.fade-out {
+	  opacity: 0;
+	  transition: opacity 0.3s ease;
+	}
+
+	.fade-in {
+	  opacity: 1;
+	  transition: opacity 0.6s ease;
+	}
+	.transition-overlay {
+		  position: fixed;
+		  top: 0; left: 0;
+		  width: 100%;
+		  height: 100%;
+		  background-color: black;
+		  opacity: 1;
+		  transition: opacity 1s ease;
+		  z-index: 9999;
+		}
+	.transition-overlay.active {
+		  opacity: 1;
+		  pointer-events: auto;
+		}
+	.memory-number {
+		font-family: 'Helvetica Neue';font-weight:300;
+		  position: absolute;
+		  font-style: italic;
+		  font-size: 1.2rem;
+		  color: white;
+		  opacity: 1;
+		  transition: opacity 0.3s ease;
+		  cursor: pointer;
+		}
+	.memory-number::after {
+			font-family: 'LG Smart UI'; font-weight:300;
+		  content: attr(data-message);
+		  position: absolute;
+		  bottom: 120%;
+		  left: 50%;
+		  transform: translateX(-50%) translateY(10px);
+		  opacity: 0;
+		  transition: opacity 0.5s ease, transform 0.5s ease;
+		  white-space: pre-line;
+		  background: rgba(0,0,0,0.6);
+		  color: white;
+		  font-size: 0.9rem;
+		  padding: 10px;
+		  border: 0.75px solid white;
+		  z-index: 999;
+		  width: 250px;
+		  pointer-events: none;
+		  visibility: hidden;
+		}
+		.memory-number:hover::after {
+			opacity: 1;
+		  transform: translateX(-50%) translateY(0);
+		  visibility: visible;
+		}
+	</style>
+</head>
+<body style="background-color: black;">
+<nav>
+	<div class="wrap flex">
+		<div class="logo">
+			EoM
+		</div>
+		<ul class="menu flex">
+		<li><a href="index.html">About</a></li>
+		<li><a href="past.html">Past</a></li>
+		<li><a href="#1">Present</a></li>
+		<li><a href="yours.html">Yours</a></li>
+		</ul>
+	</div>
+</nav> 
+<section class="theme-wrapper">
+	<div class="gradient-bg"></div>
+	<div class="bg-pic3" id="backgroundArea"></div>
+
+	<h1 class="year-title">Archive &nbsp;</h1>
+	<div class="theme-text">(Memories)</div>
+	
+	<div class="intro-box" id="introBox">
+		<p>이곳은 과거와 현재의 기억들이 머무는 곳입니다.<br>여러분의 경험도 이 흐름 속에 남겨주세요.</p>
+		<button class="go-button" id="goBtn">(→ Go)</button>
+	</div>
+	<div class="form-popup hidden" id="memoryForm">
+	  <p class="form-guide"><span class="pink">*</span> webOS 콘텐츠 키워드(음악, 운동, 게임, 교육, 의료, 회의) 중 하나의 주제로 <br>&nbsp;&nbsp;&nbsp;해당 키워드에 관련된 사용자의 일상 속 기억을 자유롭게 적어주세요.</p>
+	  <hr>
+	  <div class="input-row">
+		  <textarea  id="userMemory" placeholder="어떤 경험이 어떤 형태의 기억으로 남아있나요?"></textarea>
+		  <button class="post-button" id="postBtn">(Post)</button>
+		</div>
+	</div>
+</section>
+<div class="transition-overlay"></div>
+</body>
+<script>
+  window.addEventListener('load', () => {
+    const overlay = document.querySelector('.transition-overlay');
+    if (overlay) {
+      overlay.style.opacity = '1';
+      setTimeout(() => {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+      }, 100);
+    }
+  });
+
+  const goBtn = document.getElementById('goBtn');
+  const introBox = document.getElementById('introBox');
+  const memoryForm = document.getElementById('memoryForm');
+  const postBtn = document.getElementById('postBtn');
+  const userMemory = document.getElementById('userMemory');
+  const backgroundArea = document.getElementById('backgroundArea');
+  const overlay = document.querySelector('.transition-overlay');
+
+  let memoryCounter = 1;
+
+  // (→ Go) 버튼 클릭 시 introBox 사라지고 form 나타남
+  goBtn.addEventListener('click', () => {
+    introBox.classList.add('fade-out');
+    setTimeout(() => {
+      introBox.style.display = 'none';
+      memoryForm.classList.remove('hidden');
+      memoryForm.classList.add('active');
+    }, 300);
+  });
+
+  // (Post) 버튼 클릭 시 백그라운드에 메시지 번호 생성
+  postBtn.addEventListener('click', () => {
+    const message = userMemory.value.trim();
+    if (message === '') return;
+
+    // 무작위 위치
+    const x = Math.random() * 90 + 5; // 5~95%
+    const y = Math.random() * 80 + 10; // 10~90%
+
+    // 숫자 생성
+    const span = document.createElement('span');
+    span.className = 'memory-number';
+    span.textContent = `(${String(memoryCounter).padStart(2, '0')})`;
+    span.style.left = `${x}%`;
+    span.style.top = `${y}%`;
+    span.setAttribute('data-message', message);
+
+    backgroundArea.appendChild(span);
+    memoryCounter++;
+    userMemory.value = '';
+
+    // 폼 사라짐
+    memoryForm.classList.remove('active');
+    setTimeout(() => {
+      memoryForm.classList.add('hidden');
+    }, 300);
+  });
+</script>
+</html>
